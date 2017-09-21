@@ -14,6 +14,10 @@ So what I need to do is:
       If food.location = head.location then grow() snake
   Controls
     Pause
+    Start is used with button
     Arrow keys {Up, Down, Left, Right}
 ********************************************************************************
 */
+// get canvas width and height
+var mycanvas = document.getElementById('canvas');
+var ctx = mycanvas.getContext('2d');
