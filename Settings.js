@@ -18,6 +18,9 @@ So what I need to do is:
     Arrow keys {Up, Down, Left, Right}
 ********************************************************************************
 */
-// get canvas width and height
+
+/* Global Variables */
+
 var mycanvas = document.getElementById('canvas');
 var ctx = mycanvas.getContext('2d');
+var snake, food, cWidth = 350, cHeight = 350;
