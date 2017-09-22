@@ -30,44 +30,59 @@ var drawModule = (function(){
 
   /*Create a function to check collisions on itself */
 
-  /*Add a movement function*/
-
+  /*Add a direction function*/
+  var setDirection = function()
+  {
+    document.onkeydown = function(event){
+        if(event.keyCode == 39 && direction != "Left")
+        {
+         direction = "Right";
+        }
+        if(event.keyCode == 37 && direction != "Right")
+        {
+          direction = "Left";
+        }
+        if(event.keyCode == 38 && direction != "Down")
+        {
+          direction = "Up";
+        }
+        if(event.keyCode == 40 && direction != "Up")
+        {
+          direction = "Down";
+        }
+      };
+  }
   /*The run function */
   var run =  function(){
-    var x = snake[0].x;
-    var y = snake[0].y;
-    var move = function(event){
-      if(event.keyCode == 39) //Right
-      {
-        x++;
+    var sx = snake[0].x;
+    var sy = snake[0].y;
 
-      }
-      if(event.keyCode == 37)//Left
-      {
-        x--;
+    setDirection();
 
-      }
-      if(event.keyCode == 38) //Upp
-      {
-        y--;
-
-      }
-      if(event.keyCode == 40) //Down
-      {
-        y++;
-
-      }
-    console.log(x +" "+ y +" " +event.keyCode);
+    if(direction=="Left" )
+    {
+      sx--;
     }
-    document.onkeydown = move;
+    if(direction=="Right" )
+    {
+      sx++;
+    }
+    if(direction=="Down")
+    {
+      sy++;
+    }
+    if(direction =="Up")
+    {
+      sy--;
+    }
+    console.log(direction);
+    colorSnakeBody(sx,sy);
+    var newTail = {x: sx, y:sy};
+    snake.unshift(newTail);
 
-
-    //console.log(x);
   }
   /*An init function that runs thing together and keeps a game loop*/
   var init = function(){
-    colorSnakeBody(0,0);
-
     createSnakeArray(); //rememeber to change back to 5
     gameloop = setInterval(run, 80); //Loops the game
     // for(var i = 0; i<snake.length;i++)

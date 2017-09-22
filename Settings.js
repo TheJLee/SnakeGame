@@ -23,4 +23,5 @@ So what I need to do is:
 
 var mycanvas = document.getElementById('canvas');
 var ctx = mycanvas.getContext('2d');
-var snake, food, direction,snakeSize=10 ,score=0, cWidth = 350, cHeight = 350;
+var snake, food,prevDirection ,direction,snakeSize=10 ,score=0,
+    cWidth = 350, cHeight = 350;
