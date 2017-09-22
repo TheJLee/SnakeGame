@@ -6,12 +6,14 @@ var drawModule = (function(){
     ctx.fillStyle = 'black';
     /* fillRect(xLocation,yLocation,widthOfBox,heightOfBox)*/
     ctx.fillRect(x*snakeSize, y*snakeSize,snakeSize,snakeSize);
-    ctx.strokeStyle = 'blue';
-    ctx.strokeRect(x*snakeSize, y*snakeSize,snakeSize,snakeSize);
+
   }
-
+  /*Clear canvas*/
   /*Discolor the old location to the canvas background color*/
-
+  var removeSnakeBodyColor = function(x,y){
+    ctx.clearRect(x*snakeSize, y*snakeSize,snakeSize,snakeSize);
+  
+  }
   /*Color in the food*/
 
   /*Keep Score of the snake*/
@@ -59,7 +61,7 @@ var drawModule = (function(){
   var run =  function(){
     var sx = snake[0].x;
     var sy = snake[0].y;
-
+    removeSnakeBodyColor(sx,sy)
     setDirection();
 
     if(direction=="Left" )
@@ -79,6 +81,7 @@ var drawModule = (function(){
       sy--;
     }
     console.log(direction);
+
     colorSnakeBody(sx,sy);
     var newTail = {x: sx, y:sy};
     snake.unshift(newTail);
