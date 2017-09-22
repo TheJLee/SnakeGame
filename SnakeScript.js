@@ -9,6 +9,9 @@ var drawModule = (function(){
     ctx.strokeStyle = 'blue';
     ctx.strokeRect(x*snakeSize, y*snakeSize,snakeSize,snakeSize);
   }
+
+  /*Discolor the old location to the canvas background color*/
+
   /*Color in the food*/
 
   /*Keep Score of the snake*/
