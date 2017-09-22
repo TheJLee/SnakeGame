@@ -8,12 +8,14 @@ var drawModule = (function(){
     ctx.fillRect(x*snakeSize, y*snakeSize,snakeSize,snakeSize);
 
   }
+
   /*Clear canvas*/
+
   /*Discolor the old location to the canvas background color*/
   var removeSnakeBodyColor = function(x,y){
     ctx.clearRect(x*snakeSize, y*snakeSize,snakeSize,snakeSize);
-  
   }
+
   /*Color in the food*/
 
   /*Keep Score of the snake*/
@@ -80,8 +82,6 @@ var drawModule = (function(){
     {
       sy--;
     }
-    console.log(direction);
-
     colorSnakeBody(sx,sy);
     var newTail = {x: sx, y:sy};
     snake.unshift(newTail);
