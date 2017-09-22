@@ -22,5 +22,6 @@ So what I need to do is:
 /* Global Variables */
 
 var mycanvas = document.getElementById('canvas');
+console.log(mycanvas);
 var ctx = mycanvas.getContext('2d');
-var snake, food, cWidth = 350, cHeight = 350;
+var snake, food, direction,snakeSize=10 ,score=0, cWidth = 350, cHeight = 350;
