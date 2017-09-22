@@ -16,7 +16,7 @@ var drawModule = (function(){
   /*Init array of snake*/
   var createSnakeArray = function(){
     /*Length of snake should be 5*/
-    var length = 5;
+    var length = 1;
     /*Snake[0] should have the head of the snake so that when you pop it removes
       the tail (last part of the snake) and when you add onto the array with
       unshift, the new element at snake[0] will have the head*/
@@ -28,14 +28,42 @@ var drawModule = (function(){
   }
   /*Create a function that creates the food position*/
 
-  /* Create a function to check collisions on itself */
+  /*Create a function to check collisions on itself */
+
+  /*Add a movement function*/
 
   /*The run function */
-
+  var run =  function(){
+    var x = snake[0].x;
+    var y = snake[0].y;
+    var move = function(event){
+      if(event.keycode == 39) //Right
+      {
+        x++;
+      }
+      if(event.keycode == 37)//Left
+      {
+        x--;
+      }
+      if(event.keycode == 38) //Upp
+      {
+        y--;
+      }
+      if(event.keycode == 40) //Down
+      {
+        y++;
+      }
+      console.log(event.keycode);
+    }
+    document.addEventListener("keydown",move);
+    //console.log(x);
+  }
   /*An init function that runs thing together and keeps a game loop*/
   var init = function(){
-    //colorSnakeBody(0,0);
-    createSnakeArray();
+    colorSnakeBody(0,0);
+
+    createSnakeArray(); //rememeber to change back to 5
+    gameloop = setInterval(run, 80);
     // for(var i = 0; i<snake.length;i++)
     // {
     //   console.log(snake[i].x + " " + snake[i].y);
