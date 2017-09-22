@@ -69,7 +69,7 @@ var drawModule = (function(){
     colorSnakeBody(0,0);
 
     createSnakeArray(); //rememeber to change back to 5
-    gameloop = setInterval(run, 80);
+    gameloop = setInterval(run, 80); //Loops the game
     // for(var i = 0; i<snake.length;i++)
     // {
     //   console.log(snake[i].x + " " + snake[i].y);
